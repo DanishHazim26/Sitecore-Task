@@ -1,1 +1,8 @@
+Run the MainTask2.java
 
+- The user needs to enter the input
+
+Example output:
+Enter the input string : 1#3$44
+Trash Symbols: # $ 
+The input string is not Palindrome !
