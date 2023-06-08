@@ -1,11 +1,13 @@
 The problem is solved using Java.
 
 1 & 2:
+Run the main code MainTask1.java
 The user needs to enter the figure that they want. 
 Next, the user will choose the task (move or rotate)
 It will repeat until the user choose Stop.
 
 3:
+Run the code MainTask1Part3.java
 For the aggregation, the number is randomly generated between 0 to 5.
 The user needs to enter the point for each figure.
 The result shows the point of Move and Rotate for each point.
