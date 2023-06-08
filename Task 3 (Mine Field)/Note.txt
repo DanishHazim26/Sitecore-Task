@@ -1,0 +1,21 @@
+Minefieldgenerator.java
+- It is a file to generate minefield randomly
+- Run this code and it will prompt out the randomly generated minefield.
+- The result of pathway also provided.
+
+MinefieldPathFinder.java
+- To find the path that exist
+
+Example output:
+1 0 0 0 0 
+1 0 0 0 0 
+0 1 0 0 0 
+1 0 0 0 0 
+1 0 0 0 0 
+Started before Ally
+Totoshka: Row: 0, Column: 0 ... Ally: Not started yet  
+Totoshka: Row: 1, Column: 0 ... Ally: Row: 0, Column: 0
+Totoshka: Row: 2, Column: 1 ... Ally: Row: 1, Column: 0
+Totoshka: Row: 3, Column: 0 ... Ally: Row: 2, Column: 1
+Totoshka: Row: 4, Column: 0 ... Ally: Row: 3, Column: 0
+Totoshka: Finished ... Ally: Row: 4, Column: 0
