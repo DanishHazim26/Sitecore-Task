@@ -6,6 +6,8 @@ Minefieldgenerator.java
 MinefieldPathFinder.java
 - To find the path that exist
 
+//The number of rows and columns can be modified on the code
+
 Example output:
 1 0 0 0 0 
 1 0 0 0 0 
