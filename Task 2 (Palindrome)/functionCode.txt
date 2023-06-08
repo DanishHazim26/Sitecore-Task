@@ -1,6 +1,13 @@
 Run the MainTask2.java
-
 - The user needs to enter the input
+
+GetTrash.java
+- To find the trash symbol and store it in char datatype.
+
+CheckPalindrome.java
+- To check whether the string is Palindrome or not.
+- Start to check from leftmost and rightmost character on the input String.
+- Avoid the trash value by jumping to the next Character.
 
 Example output:
 Enter the input string : 1#3$44
