@@ -1,0 +1,9 @@
+Minefieldgenerator.java
+
+- It is a file to generate minefield randomly
+- Run this code and it will prompt out the randomly generated minefield.
+- The result of pathway also provided.
+
+MinefieldPathFinder.java
+
+- To find the path that exist
