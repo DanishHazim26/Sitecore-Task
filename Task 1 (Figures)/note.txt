@@ -1,0 +1,56 @@
+
+class Line {
+    private Point startPoint;
+    private Point endPoint;
+    
+    public Line(Point startPoint, Point endPoint) {
+        this.startPoint = startPoint;
+        this.endPoint = endPoint;
+    }
+    
+    public double length() {
+        double dx = endPoint.getX() - startPoint.getX();
+        double dy = endPoint.getY() - startPoint.getY();
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+    
+    public void move(double deltaX, double deltaY) {
+        startPoint.move(deltaX, deltaY);
+        endPoint.move(deltaX, deltaY);
+    }
+    
+    public void rotate(double angle) {
+        startPoint.rotate(angle);
+        endPoint.rotate(angle);
+    }
+}
+
+class Circle {
+    private Point center;
+    private double radius;
+    
+    public Circle(Point center, double radius) {
+        this.center = center;
+        this.radius = radius;
+    }
+    
+    public double getRadius() {
+        return radius;
+    }
+    
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+    
+    public double circumference() {
+        return 2 * Math.PI * radius;
+    }
+    
+    public void move(double deltaX, double deltaY) {
+        center.move(deltaX, deltaY);
+    }
+    
+    public void rotate(double angle) {
+        center.rotate(angle);
+    }
+}
