@@ -19,7 +19,7 @@ public class MinefieldGenerator {
         // Find a safe path through the minefield for Totoshka
         List<int[]> pathTotoshka = pathFinder.findPath();
         if (pathTotoshka != null) {
-            System.out.println("Started before Totoshka");
+            System.out.println("Started before Ally");
             for (int i = 0; i < pathTotoshka.size(); i++) {
                 int[] positionTotoshka = pathTotoshka.get(i);
                 System.out.print("Totoshka: Row: " + positionTotoshka[0] + ", Column: " + positionTotoshka[1]);
