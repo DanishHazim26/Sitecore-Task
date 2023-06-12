@@ -4,8 +4,8 @@ import java.util.Random;
 public class MinefieldGenerator {
     public static void main(String[] args) {
         // Set the size of the minefield
-        int rows = 5;
-        int columns = 5;
+        int rows = 6;
+        int columns = 10;
 
         // Generate the minefield
         int[][] minefield = generateMinefield(rows, columns);
@@ -39,24 +39,45 @@ public class MinefieldGenerator {
         }
     }
 
-    public static int[][] generateMinefield(int rows, int columns) {
+    public static int[][] generateMinefield(int rows, int columns) 
+    {
         int[][] minefield = new int[rows][columns];
         Random random = new Random();
 
+        int[] safeColumnsPrevRow = null ;
+        int[] safeColumnsThisRow;
+
         // For each row, determine the number of safe spots and their locations
-        for (int row = 0; row < rows; row++) {
+        for (int row = 0; row < rows; row++) 
+        {
+            //create random number for each row to insert the safe spot, if 3, then that row have 3 safe spot
             int numSafeSpots = random.nextInt(columns) + 1;
-            int[] safeColumns = new int[numSafeSpots];
+
+            //to store the value of safe spot in this row
+            safeColumnsThisRow = new int[numSafeSpots];
 
             // Create safe spots, ensuring each is adjacent to at least one safe spot from the previous row
-            for (int i = 0; i < numSafeSpots; i++) {
-                int safeColumn;
+            for (int i = 0; i < numSafeSpots; i++) 
+            {
+                int colToPlaceSafeSpot;
+
                 do {
-                    safeColumn = random.nextInt(columns);
-                } while (!isValidSafeSpot(row, safeColumn, safeColumns, minefield));
-                minefield[row][safeColumn] = 1;
-                safeColumns[i] = safeColumn;
+                    //create random int 
+                    colToPlaceSafeSpot = random.nextInt(columns);
+
+                } while (!isValidSafeSpot(row, colToPlaceSafeSpot, safeColumnsPrevRow));
+
+                //insert safe spot value to the particular row and column that safe
+                minefield[row][colToPlaceSafeSpot] = 1;
+
+                //store inside the safe columns total
+                safeColumnsThisRow[i] = colToPlaceSafeSpot;
+
+                //repeat until all rows have their own safe spot(s)
             }
+
+            //pass it to the previous row 
+            safeColumnsPrevRow = safeColumnsThisRow;
         }
 
         // For each spot that isn't a safe spot, place a bomb
@@ -72,15 +93,18 @@ public class MinefieldGenerator {
     }
 
     // Check if the spot is valid as a safe spot. A spot is valid if it's adjacent to at least one safe spot from the previous row.
-    public static boolean isValidSafeSpot(int row, int col, int[] safeColumns, int[][] minefield) {
+    public static boolean isValidSafeSpot(int row, int col, int[] safeColumnsIndex) {
+       
         if (row == 0) {
             return true; // First row doesn't need to check connectivity
         }
 
-        for (int i = 0; i < safeColumns.length; i++) {
-            int prevRow = row - 1;
-            int prevCol = safeColumns[i];
-
+        //safeColumns total, example if 3 safeColumns random generated, then only 3 safe spot can be input
+        for (int i = 0; i < safeColumnsIndex.length; i++) 
+        {
+            int prevRow = row - 1; //is current row of that minefield
+            int prevCol = safeColumnsIndex[i]; //initialized by getting safeColumns 
+            
             if (isAdjacent(prevRow, prevCol, row, col)) {
                 return true;
             }
@@ -90,7 +114,9 @@ public class MinefieldGenerator {
     }
 
     // Check if two spots are adjacent. Two spots are adjacent if they are at most one row and one column apart.
-    public static boolean isAdjacent(int row1, int col1, int row2, int col2) {
+    public static boolean isAdjacent(int row1, int col1, int row2, int col2) 
+    {
+        //return true if value either 0 or 1
         return Math.abs(row1 - row2) <= 1 && Math.abs(col1 - col2) <= 1;
     }
 
