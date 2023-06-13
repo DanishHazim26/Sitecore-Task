@@ -55,10 +55,10 @@ public class Circle {
         double radian = Math.toRadians(angle);
 
         //get the XPrime value
-        xPrime = x + (radius) * Math.cos(radian);
+        xPrime = x + ((radius) * Math.cos(radian));
 
         //get the YPrime value
-        yPrime = x + (radius) * Math.sin(radian);
+        yPrime = x + ((radius) * Math.sin(radian));
 
     }
 
