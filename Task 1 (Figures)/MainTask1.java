@@ -1,10 +1,12 @@
 import java.util.*;
+import java.text.DecimalFormat;
 
 public class MainTask1 {
     public static void main(String[] args) {
 
 
         Scanner sc = new Scanner(System.in);
+        DecimalFormat dF = new DecimalFormat("#.00");
         
 
         //ask user which do you want to start
@@ -19,7 +21,7 @@ public class MainTask1 {
             System.out.print("\nEnter the figure that you want to use : " );
             String figureType = sc.next();
 
-            if(figureType.equalsIgnoreCase("L"))
+            if(figureType.equalsIgnoreCase("P"))
             {
                 //for Line
 
@@ -43,7 +45,7 @@ public class MainTask1 {
                     //prompt the task
                     System.out.print("\nM for move \nR for Rotate ");
                     System.out.print("\nChoose type of Task : ");
-                    String task = sc.nextLine();
+                    String task = sc.next();
 
                     if(task.equalsIgnoreCase("M"))
                     {
@@ -57,7 +59,7 @@ public class MainTask1 {
 
                         //called the move function
                         p1.move(m1,m2);
-                        System.out.print("\nNew coordinates of P1 after moving: (" + p1.getX() + ", " + p1.getY() + ")");
+                        System.out.print("\nNew coordinates of P1 after moving: (" + dF.format(p1.getX()) + ", " + dF.format(p1.getY()) + ")");
                     }
 
                     else if(task.equalsIgnoreCase("R"))
@@ -69,7 +71,7 @@ public class MainTask1 {
                        //called the rotate function
                         p1.rotate(angleRotate);
          
-                        System.out.print("\nNew coordinates of P1 after rotating: (" + p1.getX() + ", " + p1.getY() + ")");
+                        System.out.print("\nNew coordinates of P1 after rotating: (" + dF.format(p1.getX()) + ", " + dF.format(p1.getY()) + ")");
                     }
 
                     else
@@ -78,14 +80,14 @@ public class MainTask1 {
                     }
 
                     System.out.print("\nDo you want to continue? (Y / N) : ");
-                    startTask = sc.nextLine();
+                    startTask = sc.next();
                 }
                 
 
                 
             }
 
-            else if(figureType.equalsIgnoreCase("P"))
+            else if(figureType.equalsIgnoreCase("L"))
             {
                 //for Point
 
@@ -128,7 +130,7 @@ public class MainTask1 {
                         int Lmove2 = sc.nextInt();
 
                         L1.moveLine(Lmove1, Lmove2);
-                        System.out.print("\nNew coordinates of L1 after moving: \nStart Point (" + L1.getStartX() + ", " + L1.getStartY() + ")" + "\nEnd Point (" + L1.getEndX() + ", " + L1.getEndY() + ")");
+                        System.out.print("\nNew coordinates of L1 after moving: \nStart Point (" + dF.format(L1.getStartX()) + ", " + dF.format(L1.getStartY()) + ")" + "\nEnd Point (" + dF.format(L1.getEndX()) + ", " + dF.format(L1.getEndY()) + ")");
                     }
 
                     else if(task.equalsIgnoreCase("R"))
@@ -139,7 +141,7 @@ public class MainTask1 {
  
                         //called the rotate function
                         L1.rotatLine(LineRotate);
-                        System.out.print("\nNew coordinates of L1 after moving: \nStart Point (" + L1.getStartX() + ", " + L1.getStartY() + ")" + "\nEnd Point (" + L1.getEndX() + ", " + L1.getEndY() + ")");
+                        System.out.print("\nNew coordinates of L1 after moving: \nStart Point (" + dF.format(L1.getStartX()) + ", " + dF.format(L1.getStartY()) + ")" + "\nEnd Point (" + dF.format(L1.getEndX()) + ", " + dF.format(L1.getEndY()) + ")");
                     }
 
                     else
@@ -148,7 +150,7 @@ public class MainTask1 {
                     }
 
                     System.out.print("\nDo you want to continue? (Y / N) : ");
-                    startTask = sc.nextLine();
+                    startTask = sc.next();
                 }
             }
 
@@ -191,7 +193,7 @@ public class MainTask1 {
                         double Cmove2 = sc.nextDouble();
 
                         C1.moveCircle(Cmove1, Cmove2);
-                        System.out.print("\nNew coordinates for the Center Point : (" + C1.getX() + ", " + C1.getY() + ")");
+                        System.out.print("\nNew coordinates for the Center Point : (" + dF.format(C1.getX()) + ", " + dF.format(C1.getY()) + ")");
                     }
 
                     else if(task.equalsIgnoreCase("R"))
@@ -202,7 +204,7 @@ public class MainTask1 {
  
                         //called the rotate function
                         C1.rotateCircle(CRotate);
-                        System.out.print("\nNew coordinates for the Center Point : (" + C1.getX() + ", " + C1.getY() + ")");
+                        System.out.print("\nNew coordinates for the Center Point : (" + dF.format(C1.getX()) + ", " + dF.format(C1.getY()) + ")");
                     }
 
                     else if(task.equalsIgnoreCase("G"))
@@ -213,7 +215,7 @@ public class MainTask1 {
  
                         //called the rotate function
                         C1.pointAroundCircle(CValue);
-                        System.out.print("\nCoordinates for the Point : (" + C1.getPrimeX() + ", " + C1.getPrimeY() + ")");
+                        System.out.print("\nCoordinates for the Point : (" + dF.format(C1.getPrimeX()) + ", " + dF.format(C1.getPrimeY()) + ")");
                     }
 
                     else
@@ -237,4 +239,6 @@ public class MainTask1 {
 
 
 }
+
+
 
